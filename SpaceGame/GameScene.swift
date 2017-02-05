@@ -58,13 +58,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         addChild(startfield)
         
         player = SKSpriteNode(imageNamed: "shuttle")
-        player.position = CGPoint(x: 0, y: -self.frame.size.height/2 + player.size.height )
+        player.position = CGPoint(x: self.frame.size.width / 2, y: player.size.height / 2 + 20)
         
         addChild(player)
         
         scoreLabel = SKLabelNode(text: "Score: 0")
-        //label.position = CGPoint(x: -self.frame.size.width / 2, y: -self.frame.size.height / 2 + 60)
-        scoreLabel.position = CGPoint(x: -self.frame.size.width / 2 + scoreLabel.frame.size.width, y: self.frame.height / 2 - scoreLabel.frame.size.height * 2)
+        scoreLabel.position = CGPoint(x: self.size.width / 2, y: self.frame.height - scoreLabel.frame.size.height)
         scoreLabel.fontName = "AmericanTypewriter-Bold"
         scoreLabel.fontSize = 32
         scoreLabel.fontColor = UIColor.white
@@ -89,9 +88,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
         possibleAliens = GKRandomSource.sharedRandom().arrayByShufflingObjects(in: possibleAliens) as! [String]
         let alien = SKSpriteNode(imageNamed: possibleAliens[0])
-        let randomAlienPosition = GKRandomDistribution(lowestValue: -Int(screenWidth) / 2, highestValue: Int(screenWidth) / 2)
+        let randomAlienPosition = GKRandomDistribution(lowestValue: 0, highestValue: Int(screenWidth))
         let position = CGFloat(randomAlienPosition.nextInt())
-        alien.position = CGPoint(x: position, y: self.frame.size.height / 2 - alien.size.height)
+        alien.position = CGPoint(x: position, y: self.frame.size.height - alien.size.height)
         
         alien.physicsBody = SKPhysicsBody(rectangleOf: alien.size)
         alien.physicsBody?.isDynamic = true
@@ -131,7 +130,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let animationDuration: TimeInterval = 0.3
         
         var actionArray = [SKAction]()
-        actionArray.append(SKAction.move(to: CGPoint(x: player.position.x, y: self.frame.height / 2 + 50), duration: animationDuration))
+        actionArray.append(SKAction.move(to: CGPoint(x: player.position.x, y: self.frame.height), duration: animationDuration))
 
         actionArray.append(SKAction.removeFromParent())
         
@@ -177,11 +176,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     override func didSimulatePhysics() {
         player.position.x = player.position.x + xAcceleration * 50
-        if player.position.x < -self.size.width / 2 - player.size.width / 2 {
-            player.position = CGPoint(x: self.size.width / 2 - player.size.width / 2, y: player.position.y)
-        }else if player.position.x > self.size.width / 2 + player.size.width / 2 {
-            player.position = CGPoint(x: -self.size.width / 2 + player.size.width / 2, y: player.position.y)
+        
+        if player.position.x < 0 {
+            player.position = CGPoint(x: 0, y: player.position.y)
+        }else if player.position.x > self.size.width {
+            player.position = CGPoint(x: self.size.width, y: player.position.y)
         }
+        /*
+        if player.position.x < 0 {
+            player.position = CGPoint(x: self.size.width + player.position.x, y: player.position.y)
+        }else if player.position.x > self.size.width {
+            player.position = CGPoint(x: player.position.x - self.size.width, y: player.position.y)
+        }
+        */
     }
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
