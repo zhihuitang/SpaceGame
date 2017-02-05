@@ -139,6 +139,29 @@
 			name = "Game Over";
 			sourceTree = "<group>";
 		};
+		026859231E47DC180076424C /* Game Start */ = {
+			isa = PBXGroup;
+			children = (
+				0268591A1E47A9A30076424C /* MenuScene.swift */,
+				026859181E47A25B0076424C /* MenuScene.sks */,
+			);
+			name = "Game Start";
+			sourceTree = "<group>";
+		};
+		026859241E47DC360076424C /* Supporting files */ = {
+			isa = PBXGroup;
+			children = (
+				02B1A82D1E3517A7008CB207 /* Actions.sks */,
+				02B1A8631E351982008CB207 /* MyParticle.sks */,
+				02B1A86B1E355359008CB207 /* Constants.swift */,
+				02B1A8331E3517A7008CB207 /* Main.storyboard */,
+				02B1A8361E3517A7008CB207 /* Assets.xcassets */,
+				02B1A8381E3517A7008CB207 /* LaunchScreen.storyboard */,
+				02B1A83B1E3517A7008CB207 /* Info.plist */,
+			);
+			name = "Supporting files";
+			sourceTree = "<group>";
+		};
 		02B1A81D1E3517A7008CB207 = {
 			isa = PBXGroup;
 			children = (
@@ -164,19 +187,12 @@
 			children = (
 				02B1A8291E3517A7008CB207 /* AppDelegate.swift */,
 				02B1A8311E3517A7008CB207 /* GameViewController.swift */,
-				0268591A1E47A9A30076424C /* MenuScene.swift */,
-				02B1A82D1E3517A7008CB207 /* Actions.sks */,
-				02B1A8631E351982008CB207 /* MyParticle.sks */,
-				02B1A86B1E355359008CB207 /* Constants.swift */,
-				02B1A8331E3517A7008CB207 /* Main.storyboard */,
-				026859181E47A25B0076424C /* MenuScene.sks */,
+				026859231E47DC180076424C /* Game Start */,
 				026859221E47D4880076424C /* Game Over */,
 				026859151E47A1890076424C /* Game */,
 				026859161E47A1D80076424C /* Emmitters */,
 				026859171E47A1E80076424C /* Sounds */,
-				02B1A8361E3517A7008CB207 /* Assets.xcassets */,
-				02B1A8381E3517A7008CB207 /* LaunchScreen.storyboard */,
-				02B1A83B1E3517A7008CB207 /* Info.plist */,
+				026859241E47DC360076424C /* Supporting files */,
 			);
 			path = SpaceGame;
 			sourceTree = "<group>";
