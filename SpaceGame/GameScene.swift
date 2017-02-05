@@ -122,7 +122,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.addChild(alien)
         let animationDuration: TimeInterval = 6
         var actionArray = [SKAction]()
-        actionArray.append(SKAction.move(to: CGPoint(x: position, y: -self.frame.size.height / 2), duration: animationDuration))
+        actionArray.append(SKAction.move(to: CGPoint(x: position, y: -alien.size.height / 2), duration: animationDuration))
         
         actionArray.append(SKAction.run {
             self.run(SKAction.playSoundFileNamed("loose.mp3", waitForCompletion: false))
