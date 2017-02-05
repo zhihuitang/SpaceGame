@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SpaceGame/GameScene.swift"
-            timestampString = "508022613.691558"
+            timestampString = "508024373.760295"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "179"
-            endingLineNumber = "179"
+            startingLineNumber = "216"
+            endingLineNumber = "216"
             landmarkName = "didSimulatePhysics()"
             landmarkType = "7">
          </BreakpointContent>
